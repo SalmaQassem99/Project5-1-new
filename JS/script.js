@@ -118,7 +118,8 @@ const resetTimer = () => {
 document.addEventListener("mousemove", resetTimer);
 document.addEventListener("touchstart", resetTimer);
 const checkScreen = () => {
-  const isMobile = window.innerWidth < 768;
+  const isPortrait = window.matchMedia("(orientation: portrait)").matches;
+  const isMobile = window.innerWidth < 768 && isPortrait;
   return isMobile;
 };
 window.addEventListener("load", () => {
@@ -126,6 +127,8 @@ window.addEventListener("load", () => {
   if (is_mobile) {
     popupModal.style.visibility = "visible";
     popupOverlay.style.visibility = "visible";
+  } else {
+    game.style.visibility = "visible";
   }
   animateInfo();
 });
@@ -155,13 +158,17 @@ document.addEventListener("contextmenu", function (event) {
 });
 window.addEventListener("orientationchange", function () {
   const is_mobile = checkScreen();
-  if (is_mobile) {
-    if (window.orientation === 90 || window.orientation === -90) {
+  if (window.orientation === 90 || window.orientation === -90) {
+    if (is_mobile) {
+      game.style.visibility = "visible";
       popupModal.style.visibility = "hidden";
       popupOverlay.style.visibility = "hidden";
     } else {
       popupModal.style.visibility = "visible";
       popupOverlay.style.visibility = "visible";
     }
+  } else {
+    popupModal.style.visibility = "visible";
+    popupOverlay.style.visibility = "visible";
   }
 });
