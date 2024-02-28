@@ -158,15 +158,11 @@ document.addEventListener("contextmenu", function (event) {
 });
 window.addEventListener("orientationchange", function () {
   const is_mobile = checkScreen();
-  if (window.orientation === 90 || window.orientation === -90) {
-    if (is_mobile) {
-      game.style.visibility = "visible";
-      popupModal.style.visibility = "hidden";
-      popupOverlay.style.visibility = "hidden";
-    } else {
-      popupModal.style.visibility = "visible";
-      popupOverlay.style.visibility = "visible";
-    }
+
+  if (is_mobile) {
+    game.style.visibility = "visible";
+    popupModal.style.visibility = "hidden";
+    popupOverlay.style.visibility = "hidden";
   } else {
     popupModal.style.visibility = "visible";
     popupOverlay.style.visibility = "visible";
