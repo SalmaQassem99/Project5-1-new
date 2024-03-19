@@ -559,7 +559,9 @@ $border-1: 3vh;
     font-size: 3rem;
   }
 }
-
+.link-address {
+  display: none;
+}
 .success-wrapper {
   width: 60%;
   @extend %fixed-position;
