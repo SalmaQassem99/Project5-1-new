@@ -73,9 +73,7 @@ gameImages.forEach((image) => {
         successModal.style.visibility = "visible";
         overlay.classList.add("show");
         successModal.classList.add("show");
-        setTimeout(() => {
-          document.querySelector(`audio[id="success"]`).play();
-        }, 500);
+        document.querySelector(`audio[id="success"]`).play();
       }
     });
   });
