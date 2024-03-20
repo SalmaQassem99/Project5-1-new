@@ -186,14 +186,10 @@
       }
       else if (successItem.classList.contains("hide")) {
         successItem.classList.remove("hide");
-        successItem.style.transform = "translate(-50%, -50%) scale(0)";
-        successItem.style.visibility = "hidden";
-        overlay.classList.remove("show");
         const link = document.querySelector(".link-address").textContent;
         if (link !== "") {
           gameContainer.classList.add("hideGame");
           gameContainer.addEventListener("animationend", () => {
-            gameContainer.style.transform = "translate(-50%, -50%) scale(0)";
             gameContainer.style.visibility = "hidden";
             window.location.href = link;
           })
@@ -206,6 +202,8 @@
         closeButton.classList.remove("animate");
       });
       successItem.classList.add("hide");
+      successItem.style.visibility = "hidden";
+      overlay.classList.remove("show");
     };
     document.addEventListener("click", function (event) {
       const isVisible =

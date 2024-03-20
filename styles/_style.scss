@@ -161,10 +161,13 @@ $border-1: 3vh;
   visibility: hidden;
   background-size: cover;
   background-position: 50% 100%;
+  transform-origin: left top;
 
   &.hideGame {
-    animation-name: scaleDown;
-    animation-duration: 0.5s;
+    animation-name: hideGame;
+    animation-timing-function: linear;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
     animation-iteration-count: 1;
   }
 
@@ -745,6 +748,15 @@ $border-1: 3vh;
   }
 }
 
+@keyframes hideGame {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0);
+  }
+}
 
 @keyframes scaleDown {
   0% {
