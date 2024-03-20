@@ -208,7 +208,7 @@ a {
   background-size: cover;
   background-position: 50% 100%;
 }
-.game.hide {
+.game.hideGame {
   animation-name: scaleDown;
   animation-duration: 0.5s;
   animation-iteration-count: 1;
