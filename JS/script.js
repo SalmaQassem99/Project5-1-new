@@ -43,7 +43,15 @@ playButton.addEventListener("click", () => {
       document.querySelector(".game-background").textContent
     })`;
     body.classList.add("show");
+    pauseButton.style.visibility = "visible";
+    soundButton.style.display = "flex";
   });
+});
+pauseButton.addEventListener("click", () => {
+  const hiddenIcon = pauseButton.querySelector("i.hide");
+  const shownIcon = pauseButton.querySelector("i:not(.hide)");
+  hiddenIcon.classList.remove("hide");
+  shownIcon.classList.add("hide");
 });
 gameImages.forEach((image) => {
   image.addEventListener("click", () => {
@@ -69,7 +77,9 @@ gameImages.forEach((image) => {
     itemAudio.addEventListener("ended", () => {
       if (counter === gameImages.length) {
         const text = document.querySelector(".text-card .score-text");
-        text.textContent = `${counter}/${gameImages.length}`;
+        const textContent = `${counter}/${gameImages.length}`;
+        text.textContent = textContent;
+        text.setAttribute("text", textContent);
         successModal.style.visibility = "visible";
         overlay.classList.add("show");
         successModal.classList.add("show");
